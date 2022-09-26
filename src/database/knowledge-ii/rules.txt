@@ -1,2 +1,2 @@
-IF not K & L & M THEN I  
-IF I & not L & J THEN Q  
+IF A & not B THEN C
+IF A THEN B

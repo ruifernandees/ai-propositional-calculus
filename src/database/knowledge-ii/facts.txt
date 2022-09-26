@@ -1,7 +1,1 @@
 A=yes
-C=yes
-D=yes
-E=yes
-G=yes
-H=yes
-K=yes
