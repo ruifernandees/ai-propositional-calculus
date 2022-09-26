@@ -1,0 +1,2 @@
+IF not K & L & M THEN I  
+IF I & not L & J THEN Q  
