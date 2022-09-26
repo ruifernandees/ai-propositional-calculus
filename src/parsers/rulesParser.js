@@ -1,5 +1,5 @@
 function expressionParser(expression) {
-  return expression.split('&').map((item) => {
+  return expression.split(/&|\|/).map((item) => {
     const pattern = /(?:(not) )*[a-zA-Z]/;
     const isPositive = !item.match(pattern)?.find((match) => match === 'not');
     return {
