@@ -1,24 +1,12 @@
-function ifMatchParser(ifMatch) {
-  const ifLogicalConstants = [];
-  let isNextItemNegative = false;
-  ifMatch.forEach((item) => {
-    if (typeof item !== 'string') return;
-    if (item === 'not') {
-      isNextItemNegative = true;
-      return;
-    }
-    const isNotALogicalConstant = item.length > 1;
-    if (isNotALogicalConstant) {
-      isNextItemNegative = false;
-      return;
-    }
-    ifLogicalConstants.push({
-      logicalConstant: item,
-      isPositive: !isNextItemNegative,
-    });
-    isNextItemNegative = false;
+function expressionParser(expression) {
+  return expression.split('&').map((item) => {
+    const pattern = /(?:(not) )*[a-zA-Z]/;
+    const isPositive = !item.match(pattern)?.find((match) => match === 'not');
+    return {
+      logicalConstant: item.replace('not', '').trim(),
+      isPositive,
+    };
   });
-  return ifLogicalConstants;
 }
 
 /**
@@ -27,14 +15,13 @@ function ifMatchParser(ifMatch) {
  */
 function rulesParser(rules) {
   return rules.split('\n').map((rule) => {
-    const ifPattern = /IF (?:(not) )?([a-zA-Z]) (?:& (?:(not) )*([a-zA-Z]))*/;
-    const ifMatch = rule.match(ifPattern);
-    if (!ifMatch) throw new Error('Invalid syntax: ', rule);
-    const ifLogicalConstants = ifMatchParser(ifMatch);
-    const thenPattern = /THEN /;
+    const [rawIfExpression, rawThenExpression] = rule.split('THEN');
+    const ifExpression = rawIfExpression.replace('IF', '').trim();
+    const thenExpression = rawThenExpression.trim();
+    const ifLogicalConstants = expressionParser(ifExpression);
+    const thenLogicalConstants = expressionParser(thenExpression);
     return {
-      // ifLogicalConstants,
-      ifMatch,
+      ifLogicalConstants, thenLogicalConstants,
     };
   });
 }
