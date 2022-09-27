@@ -1,0 +1,6 @@
+IF A & B THEN C 
+A THEN D
+IF C & D THEN E
+IF B & E & F THEN G
+IF A & E THEN H
+IF D & E & H THEN I

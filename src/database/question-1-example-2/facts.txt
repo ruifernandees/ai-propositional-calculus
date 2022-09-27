@@ -1,0 +1,3 @@
+A=yes
+B=yes
+F=yes
