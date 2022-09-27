@@ -4,6 +4,7 @@ function resolveDatabasePath(database) {
   const databases = {
     q1e1: 'question-1-example-1',
     q1e2: 'question-1-example-2',
+    q2e1: 'question-2-example-1',
     ii: 'knowledge-ii',
   };
 

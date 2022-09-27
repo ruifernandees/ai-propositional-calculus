@@ -1,0 +1,9 @@
+IF K & L & M THEN I
+IF I & L & J THEN Q
+IF C & D & E THEN B
+IF A & B THEN Q
+IF L & N & O & P THEN Q
+IF C & H THEN R
+IF R & J & M THEN S
+IF F & H THEN B
+IF G THEN F
