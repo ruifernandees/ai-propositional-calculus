@@ -1,2 +1,2 @@
-IF A & not B THEN C
+IF A & B THEN C
 IF A THEN B
