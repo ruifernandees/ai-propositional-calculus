@@ -7,8 +7,7 @@ const { findTargetInFacts } = require('../findTargetInFacts');
 /**
  *
  * @param {{[key: string]: boolean}} facts
- * @param {
- *  {{
+ * @param {{
  *    ifLogicalConstants: {logicalConstant: string; isPositive: boolean}[],
  *    thenLogicalConstants: {logicalConstant: string; isPositive: boolean}[]
  *  }} rules

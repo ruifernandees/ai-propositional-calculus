@@ -5,3 +5,7 @@ IF not S THEN not P
 IF T THEN not P
 IF not K THEN not P
 IF L THEN not P
+
+IF not S THEN not C
+IF P THEN C
+IF P THEN not D
