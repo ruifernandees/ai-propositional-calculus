@@ -1,11 +1,4 @@
-/**
- *
- * @param {{[key: string]: boolean}[]} facts
- * @param {{logicalConstant: string; isPositive: boolean}[]} rules
- * @param string target
- */
-function inferenceEngine(facts, rules, target) {
+const { backchaining } = require('./backchaining');
+const { forwardChaining } = require('./forwardChaining');
 
-}
-
-module.exports = { inferenceEngine };
+module.exports = { backchaining, forwardChaining };

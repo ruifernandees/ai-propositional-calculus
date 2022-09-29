@@ -1,15 +1,29 @@
+const readlineSync = require('readline-sync');
+
 const { readFileInDatabase } = require('./helpers/readFileInDatabase');
 const { factsParser } = require('./parsers/factsParser');
 const { rulesParser } = require('./parsers/rulesParser');
-const { backchaining } = require('./inference-engine/backchaining');
+const { backchaining, forwardChaining } = require('./inference-engine');
 
 const [,, database, target] = process.argv;
 
-const rawFacts = readFileInDatabase('facts.txt', database);
-const facts = factsParser(rawFacts);
-// console.log();
-const rawRules = readFileInDatabase('rules.txt', database);
-const rules = rulesParser(rawRules);
-// console.log(JSON.stringify(rulesParser(rules)[0]));
+const options = [
+  backchaining,
+  forwardChaining,
+  () => {},
+];
 
-console.log(backchaining(facts, rules, target));
+const chainingOptionsLabels = ['Encadeamento para trás', 'Encadeamento para frente', 'Encadeamento misto'];
+
+function main() {
+  const index = readlineSync.keyInSelect(chainingOptionsLabels, 'Qual encadeamento?');
+  if (index === -1) return;
+  const rawFacts = readFileInDatabase('facts.txt', database);
+  const facts = factsParser(rawFacts);
+  const rawRules = readFileInDatabase('rules.txt', database);
+  const rules = rulesParser(rawRules);
+  const result = options[index](facts, rules, target);
+  console.log(result);
+}
+
+main();
