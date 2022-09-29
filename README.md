@@ -1,5 +1,8 @@
 # Máquina de Inferẽncia - Lógica Proposicional
 
+## Demonstração das questões da lista
+https://docs.google.com/document/d/1fux22OOGYl4E4vcSB6D6Q3wCzv7UzZjMcXAmtcvoaDI/edit?usp=sharing
+
 ## Configurar ambiente
 - É necessário Node e Yarn instalados
 ```sh
