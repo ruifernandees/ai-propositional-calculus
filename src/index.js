@@ -3,14 +3,14 @@ const readlineSync = require('readline-sync');
 const { readFileInDatabase } = require('./helpers/readFileInDatabase');
 const { factsParser } = require('./parsers/factsParser');
 const { rulesParser } = require('./parsers/rulesParser');
-const { backchaining, forwardChaining } = require('./inference-engine');
+const { backchaining, forwardChaining, hybridChaining } = require('./inference-engine');
 
 const [,, database, target] = process.argv;
 
 const options = [
   backchaining,
   forwardChaining,
-  () => {},
+  hybridChaining,
 ];
 
 const chainingOptionsLabels = ['Encadeamento para trás', 'Encadeamento para frente', 'Encadeamento misto'];
