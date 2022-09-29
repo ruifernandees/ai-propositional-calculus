@@ -41,13 +41,17 @@ function backchainingRecusive(facts, rules, target) {
         } else {
           constantResult = !facts[constant.logicalConstant];
         }
+        // let finalResult = false;
+        // if (ruleWithTarget.thenLogicalConstants[0].isPositive) {
+        //   finalResult = true;
+        // }
         isTrue = isTrue && constantResult; // TTT: dinamizar operação
         // console.log('* Constant ', constant, facts[constant.logicalConstant], isTrue);
         // eslint-disable-next-line no-continue
         continue;
       }
-      // console.log('Constant ', constant, facts[constant.logicalConstant]);
       const constantResult = backchainingRecusive(facts, rules, constant.logicalConstant);
+      // console.log('Constant ', constantResult, constant, facts[constant.logicalConstant]);
       let finalResult;
       if (constant.isPositive) {
         finalResult = constantResult;
