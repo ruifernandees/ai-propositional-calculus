@@ -1,11 +1,10 @@
 IF C & not D & S & not T & K & not L THEN P
-IF not c THEN not P
+IF not C THEN not P
 IF D THEN not P
 IF not S THEN not P
 IF T THEN not P
 IF not K THEN not P
 IF L THEN not P
-
 IF not S THEN not C
 IF P THEN C
-IF P THEN not D
+IF P THEN S

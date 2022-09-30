@@ -1,1 +1,3 @@
 C=yes
+P=yes
+D=yes

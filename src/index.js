@@ -22,6 +22,7 @@ function main() {
   const facts = factsParser(rawFacts);
   const rawRules = readFileInDatabase('rules.txt', database);
   const rules = rulesParser(rawRules);
+  // console.log(facts, rules);
   const result = options[index](facts, rules, target);
   console.log(result);
 }

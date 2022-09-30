@@ -18,11 +18,11 @@ function buildRuleQueue(facts, rules, ruleQueue) {
         canSolveRule = false;
         continue;
       }
-      if (constant.isPositive && facts[constant] === false) {
+      if (constant.isPositive && facts[constant.logicalConstant] === false) {
         canSolveRule = false;
         continue;
       }
-      if (!constant.isPositive && facts[constant] === true) {
+      if (!constant.isPositive && facts[constant.logicalConstant] === true) {
         canSolveRule = false;
         continue;
       }
